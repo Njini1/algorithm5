@@ -1,56 +1,59 @@
 import java.util.*;
 
 public class swea7272 {
-	public static void main(String[] args) {
-		char[] one_dic = {'A', 'D', 'O', 'P', 'Q', 'R'}; // 구멍의 개수가 하나
-		char[] two_dic = {'B'};	// 구멍의 개수가 둘
-		
+	public static void main(String[] args) {		
 		Scanner sc = new Scanner(System.in);
 		
-		// 테스트케이스 받기
-		int T = sc.nextInt();
-
-		// 테스트케이스 반복
+		// 입력
+		int T = sc.nextInt(); // 테스트케이스의 개수
 		for(int t = 1; t <= T; t++) {
-			String ans = "";
+			char[] arr_a = (sc.next()).toCharArray(); // 왼쪽 문자열 받기
+			char[] arr_b = (sc.next()).toCharArray(); // 오른쪽 문자열 받기
+			String ans = "SAME"; // 정답
 			
-			// 문자열 받기
-			char[] arr_a = (sc.next()).toCharArray();
-			char[] arr_b = (sc.next()).toCharArray();
-			
-			int a = 0;
-			int b = 0;
-			
-			// 구멍의 개수
-			for(int i = 0; i < arr_a.length; i++) {
-				for(int j = 0; j < one_dic.length; j++) {
-					if(arr_a[i] == one_dic[j]) {
-						a++;
+			// 문자열 체크
+			if(arr_a.length == arr_b.length) { // 길이가 같으면
+				for(int i = 0; i < arr_a.length; i++) {
+					int a = -1;
+					int b = -1;
+					
+					// 왼쪽 문자열 변환
+					switch(arr_a[i]) {
+						case 'B':
+							a = 2;
+							break;
+						case 'A': case 'D': case 'O': case 'P': case 'Q': case 'R':
+							a = 1;
+							break;
+						default:
+							a = 0;
+							break;
+					}
+					
+					// 오른쪽 문자열 변환
+					switch(arr_b[i]) {
+						case 'B':
+							b = 2;
+							break;
+						case 'A': case 'D': case 'O': case 'P': case 'Q': case 'R':
+							b = 1;
+							break;
+						default:
+							b = 0;
+							break;
+					}
+					
+					// 두 문자열이 다르면
+					if(a != b) {
+						ans = "DIFF";
+						break;
 					}
 				}
-				if(arr_a[i] == two_dic[0]) {
-					a = a+2;
-				}
-			}
-				
-			for(int m = 0; m < arr_b.length; m++) {
-				for(int n = 0; n < one_dic.length; n++) {
-					if(arr_b[m] == one_dic[n]) {
-						b++;
-					}
-				}
-				if(arr_b[m] == two_dic[0]) {
-					b = b+2;
-				}
-			}
-			
-			// 구멍의 개수가 같으면 SAME
-			if(a == b) {
-				ans = "SAME";
-			} // 구멍의 개수가 다르면 DIFF
-			else {
+			} else { // 길이가 다르면
 				ans = "DIFF";
 			}
+			
+			// 출력
 			System.out.printf("#%d %s\n", t, ans);
 		}
 	}
