@@ -13,20 +13,10 @@ class Kyj {
                 for(int j = 0; j<n;j++){
                     farm[i][j] = Integer.parseInt(tmp[j]);
                 }
-
             }
-
             int sum = 0;
-            for(int i = 0; i<(n/2)+1;i++){
-                int len = 2*i+1;
-                int s = (n/2)-(len/2);
-                int e = (n/2)+(len/2);
-                for(int j = s; j<=e;j++){
-                    sum+=farm[i][j];
-                }
-            }
-            for(int i = (n/2)+1;i<n;i++){
-                int len = 2*(n-i)-1;
+            for(int i = 0; i<n;i++){
+                int len = i<(n/2)?2*i+1:2*(n-i)-1;
                 int s = (n/2)-(len/2);
                 int e = (n/2)+(len/2);
                 for(int j = s; j<=e;j++){
