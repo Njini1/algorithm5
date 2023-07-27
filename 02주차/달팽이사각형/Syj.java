@@ -22,7 +22,7 @@ public class Syj {
       int nx = x + dx[count % 4];
       int ny = y + dy[count % 4];
 
-      // 범위밖을 나가거나 값이 이미 있는 경우 count++에 x, y값 바꿔줌
+      // 범위밖을 나가거나 값이 이미 있는 경우 count++
       if (nx < 0 || nx >= N || ny < 0 || ny >= N || map[nx][ny] != 0) {
         count++;
         continue;
