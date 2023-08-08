@@ -1,4 +1,4 @@
-// 해결하지 못해 정답코드 참고하며 풀었습니다
+// 해결하지 못해 정답코드 참고하며 풀었습니다.
 
 import java.io.BufferedReader;
 import java.io.IOException;
