@@ -28,7 +28,7 @@ public class Syj{
 			}
 		}
 	}
-    
+    //건물의 길 값 받기
     for (int i = 1; i <= M; i++) {
       st = new StringTokenizer(br.readLine());
       u = Integer.parseInt(st.nextToken());
@@ -37,12 +37,12 @@ public class Syj{
 
       map[u][v] = 0;
       if (b == 0) { // 일방통행
-        map[v][u] = 1;
+        map[v][u] = 1; //u -> v로 이동하는 길이 일방통행일 때 v -> u로 이동하는 길을 양방향으로 바꿔줘야하기 때문에 1
       } else { //양방향
         map[v][u] = 0;
       }
     }
-
+    //프로이드 워셜
     for (int k = 1; k <= N; k++) {
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
@@ -52,7 +52,7 @@ public class Syj{
 			}
 		}
 	}
-
+    //출력
     D = Integer.parseInt(br.readLine());
     for (int i = 0; i < D; i++) {
     	st = new StringTokenizer(br.readLine());
